@@ -1,0 +1,1 @@
+['Cifras em Dó maior', ['CM7.9', 'C7.9', 'C7.9', 'Bm6', 'E4.7(b9)', 'Am7', 'Dm7', 'G7.9']]['Tipos acordais', ['Z2', 'Y2', 'Y2', 'z1', 'Y113', 'z0', 'z0', 'Y2']]['Genera', ['Z', 'Y', 'Y', 'z', 'Y', 'z', 'z', 'Y']]['Análise funcional', ['I', 'V/IV', 'V/IV', 'II_', 'V/VI', 'VI', 'II', 'V']]
