@@ -11,7 +11,7 @@ Created on Sun Aug 27 11:27:31 2023
 import random
 import pandas as pd
 
-def kov(corpus: str):
+def gerar(corpus: str):
     
  # abrindo as legendas dos códigos/símbolos funcionais 
 #(para futura tradução)

@@ -11,12 +11,12 @@ Created on Sun Aug 27 11:27:31 2023
 import random
 import pandas as pd
 
-def kov(corpus: str):
+def gerar(corpus: str):
     
 
 # abrindo matriz de transição do corpus
     MT=[]
-    with open('Matriz de transição r-letras - ' + corpus + '.txt', 'r') as file:
+    with open('Matriz de transição c-letras - ' + corpus + '.txt', 'r') as file:
         for linha in file:
             MT.append(linha.replace('\n',''))
 
@@ -35,24 +35,52 @@ def kov(corpus: str):
         MT1.append(item)
         
     # o usuário fornece a semente da progressão    
-    semente=input('informe a r-letra semente: ')
+    semente=input('informe a c-letra semente: ')
     
     # encontrar a linha da MT referente à semente
-    n=ord(semente)-97
-    
+    if semente =='u':
+        n=0
+    elif semente=='P':
+        n=1
+    elif semente=='p':
+        n=2
+    elif semente=='A':
+        n=3
+    elif semente=='a':
+        n=4
+    elif semente=='S':
+        n=5
+    elif semente=='s':
+        n=6
+
+
     # atribuir as probabilidades a pesos de escolhas
     weights=MT1[n]
     
     # o usuário determina o número de iterações desejadas
-    itera= input('informe o número de iterações desejadas: ')
+    itera= input('informe a cardinalidade desejada para a c-palavra: ')
+    itera=int(itera)-1
     
     #.................
-    alfa=['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']
+    alfa=['u','P','p','A','a','S','s']
     
     # gerando uma progressão funcional com n elementos
     palavra=semente
     for i in range(0,int(itera)-1):
-        n=ord(semente)-97
+        if semente =='u':
+            n=0
+        elif semente=='P':
+            n=1
+        elif semente=='p':
+            n=2
+        elif semente=='A':
+            n=3
+        elif semente=='a':
+            n=4
+        elif semente=='S':
+            n=5
+        elif semente=='s':
+            n=6
         weights=MT1[n]
         chosen = random.choices(alfa,weights, k=1)
         chosen=''.join(map(str,chosen))
@@ -62,27 +90,11 @@ def kov(corpus: str):
     
     print(palavra)
     
-    # avaliando a cardinalidade da r-palavra  
-    
-    card=0
-    for i in palavra:
-        a=ord(i)-97
-        if a<=7:
-            card+=1
-        elif a>7 and a<=15:
-            card+=2
-        elif a>15 and a<=20:
-            card+=3
-        else:
-            card+=4
-            
-        
-    palavra=['r-palavra: ', palavra, ' - cardinalidade = ' + str(card)]
-    
     # salvando a lista como arquivo de texto
     
-    with open('r-palavra baseada no corpus ' + corpus +'.txt', 'w') as filehandle:
+    with open('c-palavra baseada no corpus ' + corpus +'.txt', 'w') as filehandle:
         for listitem in palavra:
             filehandle.write(listitem)
     
  
+    
